@@ -1,0 +1,40 @@
+{
+  "name": "misty2-js",
+  "version": "1.0.0",
+  "description": "Library for connecting to Misty Robotics's Misty 2 robot.",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:cjs": "tsc --project tsconfig.cjs.json",
+    "build:esm": "tsc --project tsconfig.esm.json",
+    "build": "npm run build:cjs && npm run build:esm"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/petar1905/misty2-js.git"
+  },
+  "keywords": [
+    "misty2",
+    "misty-robotics",
+    "robotics",
+    "robot"
+  ],
+  "author": "Petar Vladov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/petar1905/misty2-js/issues"
+  },
+  "homepage": "https://github.com/petar1905/misty2-js#readme",
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "typescript": "^5.7.2"
+  }
+}
