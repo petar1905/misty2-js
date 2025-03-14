@@ -10,21 +10,28 @@ export class Misty2Robot {
     private deadzone: number;
     private imageWidth: number;
     private imageHeight: number;
+    private videoQuality: number;
     private ws: WebSocket | undefined;
 
     /**
      * Creates an instance of Misty2Robot.
      * @param ipAddress The IP address of the Misty2 robot.
      */
-    constructor(ipAddress: string) {
+    constructor(
+        ipAddress: string, 
+        videoQuality: number = 100, 
+        imageWidth: number = 400, 
+        imageHeight: number = 540
+    ) {
         this.ipAddress = ipAddress;
         this.headRotation = [0, 0];
         this.framesToMoveHead = 0;
         this.framesToMoveBody = 0;
         this.sensitivity = 0.02;
         this.deadzone = 0.1;
-        this.imageWidth = 400;
-        this.imageHeight = 540;
+        this.imageWidth = imageWidth;
+        this.imageHeight = imageHeight;
+        this.videoQuality = videoQuality;
         this.ws = undefined;
     }
 
@@ -41,7 +48,7 @@ export class Misty2Robot {
                 "Rotation": 90,
                 "Width": this.imageWidth,
                 "Height": this.imageHeight,
-                "Quality": 5
+                "Quality": this.videoQuality
             })
         });
 
